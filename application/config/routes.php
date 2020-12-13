@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['genres/create'] = 'genres/create';
+$route['genres/(:any)'] = 'genres/view/$1';
+$route['genres'] = 'genres/index';
+$route['posts/create'] = 'posts/create';
 $route['posts/(:any)'] = 'posts/view/$1';
 $route['posts'] = 'posts/index';
 $route['default_controller'] = 'pages/view';

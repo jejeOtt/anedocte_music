@@ -23,7 +23,10 @@
         <a class="nav-link" href="<?php echo base_url(); ?>">Citations</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>posts">Listes Musique/Genre</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>genres">Listes des genres</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>posts">Listes de Test</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>about">A propos</a>
