@@ -1,6 +1,6 @@
 <?php
 
-    class User_class extends CI_Model {
+    class User_model extends CI_Model {
 
         // Attributs
         private $_idUser;
@@ -48,7 +48,7 @@
         }
 
         public function getDateOfBirth() {
-            return $this->_dateOfBirth
+            return $this->_dateOfBirth;
         }
 
         public function getRoleId() {
@@ -79,5 +79,58 @@
         public function setRoleId($roleId) {
             $this->_roleId = $roleId;
         }
+
+
+        // Fonction pour mettre un utilisateur en base de données
+        public function register($enc_password) {
+            // Array des données utilisateurs
+            $data = array(
+				'userName' => $this->input->post('userName'),
+				'email' => $this->input->post('email'),
+                'dateOfBirth' => $this->input->post('dateOfBirth'),
+                'password' => $enc_password,
+                'roleId' => 1
+			);
+
+			// Mets l'utilisateur en base de donnée
+			return $this->db->insert('user', $data);
+        }
+
+        // vérifie sir le userName existe
+		public function check_username_exists($username){
+			$query = $this->db->get_where('user', array('userName' => $username));
+			if(empty($query->row_array())){
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		// Vérifie si l'email existe
+		public function check_email_exists($email){
+			$query = $this->db->get_where('user', array('email' => $email));
+			if(empty($query->row_array())){
+				return true;
+			} else {
+				return false;
+			}
+        }
+        
+        // Fonction pour logger l'utilisateur
+        public function login($username, $password) {
+            // validation
+            $this->db->where('userName', $username);
+            $this->db->where('password', $password);
+
+            // sélectionne la table 'user' de la bdd
+            $result = $this->db->get('user');
+
+            if($result->num_rows() == 1) {
+                return $result->row(0)->idUser;
+            } else {
+                return false;
+            }
+        }
+        
 
     }

@@ -2,7 +2,7 @@
 // Fonction de codeigniter qui va renvoyer un message d'erreur par la validateur. Renvoie une chaine de caractere vide s'il n'y a pas de message
 echo validation_errors(); ?>
 
-<?php echo form_open(''); ?>
+<?php echo form_open('users/register'); ?>
     <div>
         <label>Pseudonyme / User name</label>
         <input type="text" name="userName" placeholder="Nom d'utilisateur">
@@ -18,5 +18,7 @@ echo validation_errors(); ?>
 
         <label>Tapez encore une fois le mot de passe</label>
         <input type="password" name="password2" placeholder="confirmation mot de passe">
+
+        <button type="submit" class="">Submit</button>
     </div>
 <?php echo form_close(); ?>
