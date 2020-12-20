@@ -26,6 +26,9 @@
         <a class="nav-link" href="<?php echo base_url(); ?>genres">Listes des genres</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>tracks">Listes des morceaux</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>posts">Listes de Test</a>
       </li>
       <li class="nav-item">

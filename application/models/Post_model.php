@@ -19,7 +19,7 @@
             $data = array(
                 'tracks' => $this->input->post('tracks'),
                 'slug' => $slug,
-                'url' => $this->intput->post('url')
+                'url' => $this->input->post('url')
             );
 
             return $this->db->insert('posts', $data);
