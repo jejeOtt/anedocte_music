@@ -13,5 +13,10 @@
     <input type="text" class="form-control" name="story" placeholder="Ajoutez une histoire"
     value="<?php echo $genre['story']; ?>">
   </div>
+  <div class="form-group">
+    <label>IdUser</label>
+    <input type="text" class="form-control" name="idUser" placeholder="idUser"
+    value="<?php echo $genre['idUser']; ?>">
+  </div>
   <button type="submit" class="btn btn-primary">Validé</button>
 </form>

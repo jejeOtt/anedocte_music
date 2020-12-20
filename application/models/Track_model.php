@@ -18,8 +18,8 @@
             $slug = url_title($this->input->post('trackName'));
             $data = array(
                 'trackName' => $this->input->post('trackName'),
-                'url' => $this->intput->post('url'),
-                'idGenre' => $this->intput->post('idGenre'),
+                'url' => $this->input->post('url'),
+                'idGenre' => $this->input->post('idGenre'),
                 'slug' => $slug,
 
             );
@@ -27,7 +27,7 @@
             return $this->db->insert('tracks', $data);
         }
         public function delete_track($id){
-            $this->db->where('id', $id);
+            $this->db->where('idTrack', $id);
             $this->db->delete('tracks');
             return true;
         }

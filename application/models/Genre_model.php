@@ -18,8 +18,8 @@
             $slug = url_title($this->input->post('genreName'));
             $data = array(
                 'genreName' => $this->input->post('genreName'),
-                'story' => $this->intput->post('story'),
-                'idUser' => $this->intput->post('idUser'),
+                'story' => $this->input->post('story'),
+                'idUser' => $this->input->post('idUser'),
                 'slug' => $slug,
 
             );
@@ -27,7 +27,7 @@
             return $this->db->insert('genres', $data);
         }
         public function delete_genre($id){
-            $this->db->where('id', $id);
+            $this->db->where('idGenre', $id);
             $this->db->delete('genres');
             return true;
         }
