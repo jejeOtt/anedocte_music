@@ -31,10 +31,31 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>about">A propos</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
+      </li>
     </ul>
   </div>
 </nav>
 
+<?php if($this->session->flashdata('user_loggedin')): ?>
+  <?php echo($this->session->flashdata('user_loggedin')); ?>
+  <?php echo($this->session->userdata('username')); ?>
+<?php endif;?>
+
+<?php if($this->session): ?>
+  <?php echo($this->session->userdata('username')); ?>
+<?php endif;?>
+
+<?php if($this->session->flashdata('user_loggedout')): ?>
+  <?php echo($this->session->flashdata('user_loggedout')); ?>
+<?php endif;?>
     <div class="container">
         <br>
         <hr>
