@@ -34,26 +34,45 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>about">A propos</a>
       </li>
+      <?php if(!$this->session->userdata('logged_in')): ?>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/login">Login</a>
       </li>
+      <?php endif;?>
+      <?php if($this->session->userdata('logged_in')): ?>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
       </li>
+      <?php endif;?>
     </ul>
   </div>
 </nav>
 
 <?php if($this->session->flashdata('user_loggedin')): ?>
   <?php echo($this->session->flashdata('user_loggedin')); ?>
-  <?php echo($this->session->userdata('username')); ?>
+  <?php echo($this->session->userdata('userName')); ?>
 <?php endif;?>
 
+<!-- Enlever ce bloc, juste la pour faire des test et output les infos du user/ S'en servir comme référence pour utiliser les infos de la session -->
 <?php if($this->session): ?>
-  <?php echo($this->session->userdata('username')); ?>
+  <?php 
+    echo($this->session->userdata('userName'));
+  ?> 
+    <br/>
+  <?php 
+    echo($this->session->userdata('idUser')); 
+  ?>
+    <br/>
+  <?php
+    echo($this->session->userdata('email')); 
+  ?>
+    <br/>
+  <?php
+    echo($this->session->userdata('roleId')); 
+  ?>
 <?php endif;?>
 
 <?php if($this->session->flashdata('user_loggedout')): ?>

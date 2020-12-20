@@ -11,9 +11,9 @@
     <label>Choisissez l'histoire qui convient au genre</label>
     <input type="text" class="form-control" name="story" placeholder="Ajoutez une histoire">
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label>IdUser</label>
     <input type="text" class="form-control" name="idUser" placeholder="idUser">
-  </div>
+  </div> -->
   <button type="submit" class="btn btn-primary">Validé</button>
 </form>

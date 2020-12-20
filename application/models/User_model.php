@@ -21,7 +21,7 @@
         // Fonction pour hydrater notre class
         public function hydrate($donnees) {
             foreach($donnees as $key->value) {
-                $method = ' set'.ucfirst($key);
+                $method = 'set'.ucfirst($key);
 
                 if(method_exists($this, $method)) {
 
@@ -61,7 +61,7 @@
         }
 
         public function setUserName($userName) {
-            $this->_idUser = $idUser;
+            $this->_userName = $userName;
         }
 
         public function setEmail($email) {
@@ -73,7 +73,7 @@
         }
 
         public function setDateOfBirth($dateOfBirth) {
-            $this->_dateOfBirth = $idUser;
+            $this->_dateOfBirth = $dateOfBirth;
         }
 
         public function setRoleId($roleId) {
@@ -124,9 +124,11 @@
 
             // sélectionne la table 'user' de la bdd
             $result = $this->db->get('users');
-
+    
             if($result->num_rows() == 1) {
-                return $result->row(0)->idUser;
+                //return $result->row(0)->idUser;
+                $row = $result->row_array();
+                return $row;
             } else {
                 return false;
             }

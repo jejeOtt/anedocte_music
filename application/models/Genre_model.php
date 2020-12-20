@@ -19,7 +19,7 @@
             $data = array(
                 'genreName' => $this->input->post('genreName'),
                 'story' => $this->input->post('story'),
-                'idUser' => $this->input->post('idUser'),
+                'idUser' => $this->session->userdata['idUser'],
                 'slug' => $slug,
 
             );

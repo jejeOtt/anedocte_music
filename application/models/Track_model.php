@@ -20,6 +20,7 @@
                 'trackName' => $this->input->post('trackName'),
                 'url' => $this->input->post('url'),
                 'idGenre' => $this->input->post('idGenre'),
+                'idUser' => $this->session->userdata['idUser'],
                 'slug' => $slug,
 
             );

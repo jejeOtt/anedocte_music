@@ -69,15 +69,18 @@ class Users extends CI_Controller {
 			// récupère le mot de passe et le crypte
 			$password = md5($this->input->post('password'));
 			
-			// Login user
-			$user_id = $this->user_model->login($username, $password);
-
-			if($user_id){
+			// Login user, on fait appel à la méthode login de User_model
+			$user_info = $this->user_model->login($username, $password);
+			//print_r($user_info['roleId']);
+			if($user_info){
 				// Créer la session utilisateur
 				$user_data = array(
-					'user_id' => $user_id,
-					'username' => $username,
-					'logged_in' => true
+					'idUser' => $user_info['idUser'],
+					'userName' => $user_info['userName'],
+					'email' => $user_info['email'],
+					'roleId' => $user_info['roleId'],
+					'logged_in' => true,
+
 				);
 
 				$this->session->set_userdata($user_data);
@@ -86,6 +89,7 @@ class Users extends CI_Controller {
 				$this->session->set_flashdata('user_loggedin', 'Vous êtes maintenant connecté');
 
 				redirect('pages/view');
+
 			} else {
 				die('Failed');
 				// Set message
@@ -100,8 +104,10 @@ class Users extends CI_Controller {
 	public function logout() {
 		// on détruit les données de l'utilisateur
 		$this->session->unset_userdata('logged_in');
-		$this->session->unset_userdata('user_id');
-		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('idUser');
+		$this->session->unset_userdata('userName');
+		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('roleId');
 
 		// créer un message
 		$this->session->set_flashdata('user_loggedout', 'Vous êtes maintenant déconnecté');
