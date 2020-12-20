@@ -93,12 +93,12 @@
 			);
 
 			// Mets l'utilisateur en base de donnée
-			return $this->db->insert('user', $data);
+			return $this->db->insert('users', $data);
         }
 
         // vérifie sir le userName existe
 		public function check_username_exists($username){
-			$query = $this->db->get_where('user', array('userName' => $username));
+			$query = $this->db->get_where('users', array('userName' => $username));
 			if(empty($query->row_array())){
 				return true;
 			} else {
@@ -108,7 +108,7 @@
 
 		// Vérifie si l'email existe
 		public function check_email_exists($email){
-			$query = $this->db->get_where('user', array('email' => $email));
+			$query = $this->db->get_where('users', array('email' => $email));
 			if(empty($query->row_array())){
 				return true;
 			} else {
@@ -123,7 +123,7 @@
             $this->db->where('password', $password);
 
             // sélectionne la table 'user' de la bdd
-            $result = $this->db->get('user');
+            $result = $this->db->get('users');
 
             if($result->num_rows() == 1) {
                 return $result->row(0)->idUser;
