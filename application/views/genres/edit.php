@@ -2,7 +2,8 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('genres/create'); ?>
+<?php echo form_open('genres/update'); ?>
+<input type="hidden" name="idGenre" value="<?php echo $genre['idGenre']; ?>">
   <div class="form-group">
     <label>Genre</label>
     <input type="text" class="form-control" name="genreName" placeholder="Ajoutez un genre"

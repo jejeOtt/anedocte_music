@@ -60,4 +60,9 @@
             $this->load->view('genres/edit', $data);
             $this->load->view('templates/footer');
         }
+        public function update() {
+            $this->genre_model->update_genre();
+            redirect('genres');
+
+        }
     }

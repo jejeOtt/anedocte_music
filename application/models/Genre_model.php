@@ -31,4 +31,19 @@
             $this->db->delete('genres');
             return true;
         }
+
+        public function update_genre(){
+            $slug = url_title($this->input->post('genreName'));
+            $data = array(
+                'genreName' => $this->input->post('genreName'),
+                'story' => $this->input->post('story'),
+                'idUser' => $this->session->userdata['idUser'],
+                'slug' => $slug,
+
+            );
+            $this->db->where('idGenre', $this->input->post('idGenre'));
+
+            return $this->db->update('genres', $data);
+
+        }
     }

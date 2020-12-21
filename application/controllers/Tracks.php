@@ -4,6 +4,7 @@
             $data['title'] = 'track';
 
             $data['tracks'] = $this->track_model->get_tracks();
+            $data['genres'] = $this->track_model->get_genres_forTracks();
 
             $this->load->view('templates/header');
             $this->load->view('tracks/index', $data);
@@ -28,8 +29,10 @@
             
             $data['title'] = 'Create track';
 
-            $this->form_validation->set_rules('trackName', 'trackName', 'required');
-            $this->form_validation->set_rules('story', 'story', 'required');
+            $data['genres'] = $this->track_model->get_genres_forCreate();
+
+            $this->form_validation->set_rules('nameTrack', 'nameTrack', 'required');
+            $this->form_validation->set_rules('url', 'url', 'required');
 
             if($this->form_validation->run() === FALSE){
                 $this->load->view('templates/header');
@@ -59,5 +62,10 @@
             $this->load->view('templates/header');
             $this->load->view('tracks/edit', $data);
             $this->load->view('templates/footer');
+        }
+        public function update() {
+            $this->track_model->update_track();
+            redirect('tracks');
+
         }
     }
