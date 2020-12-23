@@ -4,7 +4,6 @@
             $data['title'] = 'track';
 
             $data['tracks'] = $this->track_model->get_tracks();
-            $data['genres'] = $this->track_model->get_genres_forTracks();
 
             $this->load->view('templates/header');
             $this->load->view('tracks/index', $data);

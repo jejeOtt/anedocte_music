@@ -7,16 +7,13 @@
 
         public function get_tracks($slug = FALSE){
             if($slug === FALSE){
+            $this->db->order_by('tracks.idTrack', 'DESC');
+            $this->db->join('genres', 'genres.idGenre = tracks.idGenre');
             $query = $this->db->get('tracks');
             return $query->result_array();
             }
             $query = $this->db->get_where('tracks', array('slug' => $slug));
             return $query->row_array();
-        }
-
-        public function get_genres_forTracks(){
-            $query = $this->db->get('genres');
-            return $query->result_array();
         }
 
         public function create_track(){
