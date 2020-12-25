@@ -43,6 +43,11 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
       </li>
+        <?php if($this->session->userdata('roleId') == 1 || $this->session->userdata('roleId') == 2): ?>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo base_url(); ?>back_office/index">Back-Office</a>
+        </li>
+        <?php endif;?>
       <?php endif;?>
     </ul>
   </div>

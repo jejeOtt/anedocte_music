@@ -1,0 +1,1 @@
+<h1>Liste des genres en attente de validation</h1>

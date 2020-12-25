@@ -11,3 +11,10 @@ Edit</a>
 <?php echo form_open('/genres/delete/'.$genre['idGenre']); ?>
     <input type="submit" value="Supprimer" class="btn btn-danger">
 </form>
+
+<!-- Liste des tracks liées au genre. La track doit avoir été validé, donc isValidated == 1 -->
+<?php foreach($tracks as $track) : ?>
+    <?php if($track['isValidated'] == 1) : ?>
+        <p><?php echo($track['nameTrack']) ;?></p>
+    <?php endif; ?>
+<?php endforeach; ?>

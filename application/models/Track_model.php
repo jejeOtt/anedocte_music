@@ -19,6 +19,13 @@
             return $query->result_array();
         }
 
+        // Fonction pour récupérer la liste des tracks liées à un genre avec l'idGenre
+        public function get_tracks_by_idGenre($idGenre) {
+            $query = $this->db->get_where('tracks', array('idGenre' => $idGenre));
+    
+            return $query->result_array();
+        }
+
         public function create_track(){
             $slug = url_title($this->input->post('nameTrack'));
             $data = array(
