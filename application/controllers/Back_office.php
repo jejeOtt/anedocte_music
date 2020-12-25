@@ -20,10 +20,25 @@ class Back_office extends CI_Controller {
             redirect('');
         } else {
             $data['genres'] = $this->back_office_model->get_unvalidated_genres();
-            var_dump($data);
 
             $this->load->view('templates/header');
-            $this->load->view('back_office/genres');
+            $this->load->view('back_office/genres', $data);
+			$this->load->view('templates/footer');
+        }
+    }
+
+    // Valide un genre
+    public function validate_genre() {
+        if($this->session->userdata('roleId') > 2 || !$this->session) {
+            redirect('');
+        } else {
+            // uri->segment est utilisé pour récupérer l'id du genre qu'on a passé en URL dans la view genres.php
+            $this->back_office_model->validate_update_genre($this->uri->segment(3));
+
+            // Affiche la vue avec les données qu'il faut
+            $data['genres'] = $this->back_office_model->get_unvalidated_genres();
+            $this->load->view('templates/header');
+            $this->load->view('back_office/genres', $data);
 			$this->load->view('templates/footer');
         }
     }
