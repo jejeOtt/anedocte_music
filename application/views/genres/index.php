@@ -5,7 +5,9 @@
 <?php endif;?>
 
 <?php foreach($genres as $genre) : ?>
-    <h3><?php echo $genre['genreName']; ?></h3>
-    <small class="post-date">Posted on : <?php echo $genre['createdAt']; ?></small><br>
-    <p><a class="btn btn-outline-primary" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p>
+    <?php if($genre['isValidated'] == 1) : ?>
+        <h3><?php echo $genre['genreName']; ?></h3>
+        <small class="post-date">Posted on : <?php echo $genre['createdAt']; ?></small><br>
+        <p><a class="btn btn-outline-primary" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p>
+    <?php endif; ?>
 <?php endforeach; ?>

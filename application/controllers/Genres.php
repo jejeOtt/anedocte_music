@@ -12,10 +12,13 @@
 
         public function view($slug = NULL){
             $data['genre'] = $this->genre_model->get_genres($slug);
-
+            
             if(empty($data['genre'])){
                 show_404();
             }
+
+            // Récupérer les tracks liées aux genres
+            $data['tracks'] = $this->track_model->get_tracks_by_idGenre($data['genre']['idGenre']);
 
             $data['genreName'] = $data['genre']['genreName'];
 
