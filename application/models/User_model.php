@@ -87,9 +87,8 @@
             $data = array(
 				'userName' => $this->input->post('userName'),
 				'email' => $this->input->post('email'),
-                'dateOfBirth' => $this->input->post('dateOfBirth'),
                 'password' => $enc_password,
-                'roleId' => 1
+                'roleId' => 3
 			);
 
 			// Mets l'utilisateur en base de donnée
@@ -137,6 +136,12 @@
         // Fonction pour récupérer les genres crées par un utilisateur
         public function get_created_genres($idUser) {
             $query = $this->db->get_where('genres', array('idUser' => $idUser));
+            return $query->result_array();
+        }
+
+        // Fonction pour récupérer les tracks crées par un utilisateur
+        public function get_created_tracks($idUser) {
+            $query = $this->db->get_where('tracks', array('idUser' => $idUser));
             return $query->result_array();
         }
     }

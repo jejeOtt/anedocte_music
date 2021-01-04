@@ -5,9 +5,11 @@
 </div>
 
 <hr>
-<a class="btn btn-primary pull-left" href="<?php echo base_url(); ?>
-tracks/edit/<?php echo $track['slug']; ?>">
-Edit</a>
-<?php echo form_open('/tracks/delete/'.$track['idTrack']); ?>
+
+<?php if($this->session->userdata('roleId') < 3 || $this->session->userdata('idUser') == $track['idUser']): ?>
+    <a class="btn btn-primary pull-left" href="<?php echo base_url(); ?>tracks/edit/<?php echo $track['slug']; ?>">
+    Edit</a>
+    <?php echo form_open('/tracks/delete/'.$track['idTrack']); ?>
     <input type="submit" value="Supprimer" class="btn btn-danger">
+<?php endif; ?>
 </form>

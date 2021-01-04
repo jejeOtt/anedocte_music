@@ -29,6 +29,7 @@
         }
 
         public function delete_user($idUser) {
+            // Suppresion de l'utilisateur
             $this->db->where('idUser', $idUser);
             $this->db->delete('users');
 

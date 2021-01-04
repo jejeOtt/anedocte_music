@@ -16,8 +16,11 @@
   </div>
   <div class="form-group">
     <label>IdGenre</label>
-    <input type="text" class="form-control" name="idGenre" placeholder="IdGenre"
-    value="<?php echo $track['idGenre']; ?>">
+    <select name="idGenre" class="form-control">
+      <?php foreach($genres as $genre): ?>
+      <option value="<?php echo $genre['idGenre']; ?>"><?php echo $genre['genreName']; ?></option>
+      <?php endforeach; ?>
+    </select>
   </div>
   <button type="submit" class="btn btn-primary">Validé</button>
 </form>

@@ -12,7 +12,6 @@ class Users extends CI_Controller {
 	public function register() {
 		$this->form_validation->set_rules('userName', 'UserName', 'required|callback_check_username_exists');
 		$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
-		$this->form_validation->set_rules('dateOfBirth', 'DateDeNaissance', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
 
@@ -139,6 +138,11 @@ class Users extends CI_Controller {
 
 	// consulter les tracks crées
 	public function created_tracks() {
-		
+		$data['my_tracks'] = $this->user_model->get_created_tracks($this->session->userdata['idUser']);
+		//var_dump($data);
+
+		$this->load->view('templates/header');
+		$this->load->view('users/created_tracks', $data);
+		$this->load->view('templates/footer');
 	}
 }

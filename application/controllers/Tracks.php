@@ -51,6 +51,7 @@
 
         public function edit($slug){
             $data['track'] = $this->track_model->get_tracks($slug);
+            $data['genres'] = $this->track_model->get_genres_forCreate();
 
             if(empty($data['track'])){
                 show_404();

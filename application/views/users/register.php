@@ -10,9 +10,6 @@ echo validation_errors(); ?>
         <label>Email</label>
         <input type="text" name="email" placeholder="Email">
 
-        <label>Date de naissance</label>
-        <input type="text" name="dateOfBirth" placeholder="date de naissance">
-
         <label>Mot de passe</label>
         <input type="password" name="password" placeholder="mot de passe">
 

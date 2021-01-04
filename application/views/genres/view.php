@@ -5,11 +5,13 @@
 </div>
 
 <hr>
-<a class="btn btn-primary pull-left" href="<?php echo base_url(); ?>
-genres/edit/<?php echo $genre['slug']; ?>">
-Edit</a>
-<?php echo form_open('/genres/delete/'.$genre['idGenre']); ?>
+
+<?php if($this->session->userdata('roleId') < 3 || $this->session->userdata('idUser') == $genre['idUser']): ?>
+    <a class="btn btn-primary pull-left" href="<?php echo base_url(); ?>genres/edit/<?php echo $genre['slug']; ?>">
+    Edit</a>
+    <?php echo form_open('/genres/delete/'.$genre['idGenre']); ?>
     <input type="submit" value="Supprimer" class="btn btn-danger">
+<?php endif; ?>
 </form>
 
 <!-- Liste des tracks liées au genre. La track doit avoir été validé, donc isValidated == 1 -->
