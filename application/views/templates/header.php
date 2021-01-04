@@ -15,13 +15,6 @@
 
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url(); ?>">Accueil
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>">Citations</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>genres">Listes des genres</a>
       </li>
@@ -31,6 +24,8 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>about">A propos</a>
       </li>
+    </ul>
+    <ul class="navbar-nav">
       <?php if(!$this->session->userdata('logged_in')): ?>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/register">Register</a>
