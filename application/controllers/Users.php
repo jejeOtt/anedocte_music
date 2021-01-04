@@ -115,4 +115,30 @@ class Users extends CI_Controller {
 		// Redirige vers la page de login
 		redirect('users/login');
 	}
+
+	// espace personnel de l'utilisateur
+	public function account($idUser) {
+		if($this->session->userdata['idUser'] == $idUser) {
+			$this->load->view('templates/header');
+			$this->load->view('users/index');
+			$this->load->view('templates/footer');
+		} else {
+			echo('Accès non autorisé !!!');
+		}
+	}
+
+	// consulter les genres crées
+	public function created_genres() {
+		$data['my_genres'] = $this->user_model->get_created_genres($this->session->userdata['idUser']);
+		//var_dump($data);
+
+		$this->load->view('templates/header');
+		$this->load->view('users/created_genres', $data);
+		$this->load->view('templates/footer');
+	}
+
+	// consulter les tracks crées
+	public function created_tracks() {
+		
+	}
 }

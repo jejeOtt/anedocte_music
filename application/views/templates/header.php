@@ -43,19 +43,38 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>users/logout">Logout</a>
       </li>
-        <?php if($this->session->userdata('roleId') == 1 || $this->session->userdata('roleId') == 2): ?>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>back_office/index">Back-Office</a>
-        </li>
-        <?php endif;?>
+      <!-- Utilisateur - Espace -->
+      <?php if($this->session): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('users/account/'.$this->session->userdata['idUser']); ?>">Mon espace</a>
+      </li>
+      <?php endif;?>
+      <!-- Modérateur - Back-Office -->
+      <?php if($this->session->userdata('roleId') == 1 || $this->session->userdata('roleId') == 2): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>back_office/index">Back-Office</a>
+      </li>
+      <?php endif;?>
+      <!-- Admin - Admin-Office -->
+      <?php if($this->session->userdata('roleId') == 1) : ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>admin_office/index">Admin-Office</a>
+      </li>
+      <?php endif;?>
       <?php endif;?>
     </ul>
   </div>
 </nav>
 
+
+<!-- Flashdata -->
 <?php if($this->session->flashdata('user_loggedin')): ?>
   <?php echo($this->session->flashdata('user_loggedin')); ?>
   <?php echo($this->session->userdata('userName')); ?>
+<?php endif;?>
+
+<?php if($this->session->flashdata('user_delete')): ?>
+  <?php echo($this->session->flashdata('user_delete')); ?>
 <?php endif;?>
 
 <!-- Enlever ce bloc, juste la pour faire des test et output les infos du user/ S'en servir comme référence pour utiliser les infos de la session -->

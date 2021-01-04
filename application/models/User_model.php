@@ -134,5 +134,9 @@
             }
         }
         
-
+        // Fonction pour récupérer les genres crées par un utilisateur
+        public function get_created_genres($idUser) {
+            $query = $this->db->get_where('genres', array('idUser' => $idUser));
+            return $query->result_array();
+        }
     }
