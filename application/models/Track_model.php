@@ -9,6 +9,7 @@
             if($slug === FALSE){
             $this->db->order_by('tracks.idTrack', 'DESC');
             $this->db->join('genres', 'genres.idGenre = tracks.idGenre');
+            $this->db->select('tracks.idTrack, tracks.nameTrack, tracks.url, tracks.slug, tracks.createdAt, tracks.updatedAt, tracks.isValidated, tracks.idGenre, tracks.idUser, genres.genreName');
             $query = $this->db->get('tracks');
             return $query->result_array();
             }
