@@ -1,15 +1,15 @@
-<h2><?=$title; ?></h2>
+<h5 style="text-align:center" class="h3 mb-3 fw-bold"><?= $title ?></h5>
 
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('tracks/create'); ?>
   <div class="form-group">
-    <label>Nom d'un morceau</label>
+    <label>Nom du morceau</label>
     <input type="text" class="form-control" name="nameTrack" placeholder="Ajoutez un morceau">
   </div>
   <div class="form-group">
-    <label>url</label>
-    <input type="text" class="form-control" name="url" placeholder="Ajoutez un url">
+    <label>URL</label>
+    <input type="text" class="form-control" name="url" placeholder="Ajoutez un URL">
   </div>
   <div class="form-group">
     <label>Genres</label>
@@ -19,5 +19,5 @@
       <?php endforeach; ?>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Validé</button>
+  <button type="submit" class="btn btn-primary">Valider</button>
 </form>

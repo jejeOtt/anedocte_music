@@ -1,4 +1,4 @@
-<h2><?=$title; ?></h2>
+<h5 style="text-align:center" class="h3 mb-3 fw-bold"><?= $title ?></h5>
 
 <?php echo validation_errors(); ?>
 
