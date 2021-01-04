@@ -9,7 +9,6 @@
 </head>
 
 <body>
-<div class="container">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="<?php echo base_url(); ?>">MusicAnedoctes</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#0d6efd" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
