@@ -1,4 +1,4 @@
-<h2><?php echo $track['nameTrack']; ?></h2>
+<h2 style="text-align:center"><?php echo $track['nameTrack']; ?></h2>
 <small class="track-date">fait le : <?php echo $track['createdAt']; ?></small><br>
 <div class="track-body">
     <?php echo $track['url']; ?>
@@ -11,3 +11,4 @@ Edit</a>
 <?php echo form_open('/tracks/delete/'.$track['idTrack']); ?>
     <input type="submit" value="Supprimer" class="btn btn-danger">
 </form>
+
