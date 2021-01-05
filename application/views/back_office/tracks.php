@@ -1,8 +1,34 @@
-<h1>Liste des tracks en attente de validation</h1>
+<h5 style="text-align:center" class="h3 mb-3 fw-bold">Liste des tracks en attente de validation</h5><br>
 
 <?php foreach($tracks as $track) : ?>
-    <h3><?php echo $track['nameTrack']; ?></h3>
-    <small class="post-date">Posted on : <?php echo $track['createdAt']; ?></small><br>
-    <p><a class="btn btn-outline-primary" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a></p>
-    <p><a class="btn btn-outline-primary" href="<?php echo site_url('/back_office/validate_track/'.$track['idTrack']); ?>">Valider la track</a></p>
+
+
+    <div class="row">
+         <div class="col-sm-6">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5>
+                <p class="card-text">Consulter les détails de ce morceau ici : </p><br>
+                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a>  <a class="btn btn-lg btn-info" 
+                href="<?php echo site_url('/back_office/validate_track/'.$track['idTrack']); ?>">Valider la track</a></p><br>
+                <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
+                <p class="card-text">Numéro créateur : <?php echo $track['idUser']; ?>
+            </div>
+            </div>
+         </div>
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Video</h5>
+                    <p class="card-text">Vous pouvez écoutez ce morceau ici : </p>
+                    <iframe width="500" height="175" 
+                    src="https://www.youtube.com/embed/<?php echo $track["url"]; ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>
+                </div>
+                </div>
+            </div>
+    </div>
+                
+                <br><hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
+
+
 <?php endforeach; ?>

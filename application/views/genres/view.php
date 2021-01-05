@@ -1,6 +1,9 @@
 <h2><?php echo $genre['genreName']; ?></h2>
+<!--
 <small class="genre-date">fait le : <?php echo $genre['createdAt']; ?></small><br>
+-->
 <div class="genre-body">
+
     <?php echo $genre['story']; ?>
 </div>
 

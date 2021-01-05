@@ -1,9 +1,23 @@
-<h1>Liste des utilisateurs</h1>
-<?php foreach($users as $user) :?>
-<p><?php echo($user['userName']); ?></p>
-<p><?php echo($user['email']); ?></p>
-<p><?php echo($user['idUser']); ?></p>
-<p><a class="btn btn-outline-primary" href="<?php echo site_url('/admin_office/user_detail/'.$user['idUser']); ?>">Detail</a></p>
-<p><a class="btn btn-outline-primary" href="<?php echo site_url('/admin_office/delete_user/'.$user['idUser']); ?>">Supprimer</a></p>
+<h5 style="text-align:center" class="h3 mb-3 fw-bold">Liste des utilisateurs</h5>
+<br><?php foreach($users as $user) :?>
+
+<div class="card">
+  <div class="card-body">
+    Nom d'utilisateur: <?php echo($user['userName']); ?>
+  </div>
+
+  
+<div class="card bg-light">
+  <div class="card-body">
+    Adresse mail : <?php echo($user['email']); ?><br>
+    Identifiant utilistaeur : <?php echo($user['idUser']); ?><br>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-info me-md-2" href="<?php echo site_url('/admin_office/user_detail/'.$user['idUser']); ?>">Detail</button>
+        <button class="btn btn-danger me-md-2" href="<?php echo site_url('/admin_office/delete_user/'.$user['idUser']); ?>">Supprimer</button>
+    </div>
+  </div>
+</div>
+<br>
+
 
 <?php endforeach; ?>
