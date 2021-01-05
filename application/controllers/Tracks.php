@@ -3,7 +3,38 @@
         public function index(){
             $data['title'] = 'track';
 
-            $data['tracks'] = $this->track_model->get_tracks();
+            //charger la librairie pagination
+            $this->load->library('pagination');
+
+            if($this->input->post('trackSend')) {
+                $data['trackSearch'] = $this->input->post('trackSearch');
+                $this->session->set_userdata('trackSearch', $data['trackSearch']);
+            } else {
+                $data['trackSearch'] = $this->session->userdata('trackSearch');
+            }
+            if($this->input->post('trackGenreSend')) {
+                $data['trackGenreSearch'] = $this->input->post('trackGenreSearch');
+                $this->session->set_userdata('trackGenreSearch', $data['trackGenreSearch']);
+            } else {
+                $data['trackGenreSearch'] = $this->session->userdata('trackGenreSearch');
+            }
+
+            //Config
+            //$this->db->like('genres.genreName', $data['trackGenreSearch']);
+            $this->db->like('nameTrack', $data['trackSearch']);
+            $this->db->from('tracks');
+            $config['total_rows'] = $this->db->count_all_results();
+            $data['total_rows'] = $config['total_rows'];
+            $config['per_page'] = 6;
+            $config['base_url'] = 'http://localhost/projetPHP/tracks/index';
+
+
+            //Initialiser
+            $this->pagination->initialize($config);
+
+            $data['start'] = $this->uri->segment(3);
+
+            $data['tracks'] = $this->track_model->get_tracks(false, $config['per_page'], $data['start'], $data['trackSearch'], $data['trackGenreSearch'] );
 
             $this->load->view('templates/header');
             $this->load->view('tracks/index', $data);
@@ -11,7 +42,7 @@
         }
 
         public function view($slug = NULL){
-            $data['track'] = $this->track_model->get_tracks($slug);
+            $data['track'] = $this->track_model->getAll_tracks($slug);
 
             if(empty($data['track'])){
                 show_404();

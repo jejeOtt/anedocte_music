@@ -3,12 +3,12 @@
 <head>
     <title>Music anedoctes</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bodycolor">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="<?php echo base_url(); ?>">MusicAnedoctes</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#0d6efd" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
