@@ -91,26 +91,6 @@
   <div class="alert alert-success"><?php echo($this->session->flashdata('created_genre')); ?></div>
 <?php endif;?>
 
-
-<!-- Enlever ce bloc, juste la pour faire des test et output les infos du user/ S'en servir comme référence pour utiliser les infos de la session -->
-<?php if($this->session): ?>
-  <?php 
-    echo($this->session->userdata('userName'));
-  ?> 
-    <br/>
-  <?php 
-    echo($this->session->userdata('idUser')); 
-  ?>
-    <br/>
-  <?php
-    echo($this->session->userdata('email')); 
-  ?>
-    <br/>
-  <?php
-    echo($this->session->userdata('roleId')); 
-  ?>
-<?php endif;?>
-
     <div class="container">
         <br>
   

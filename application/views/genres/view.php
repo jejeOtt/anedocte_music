@@ -6,6 +6,8 @@
 
     <?php echo $genre['story']; ?>
 </div>
+<br>
+<hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
 
 <!-- Ne sont accessibles que si on est modérateur ou admin, ou que l'utilisateur a crée la ressource -->
 <?php if($this->session->userdata('roleId') == 1 || $this->session->userdata('roleId') == 2 || $this->session->userdata('idUser') == $genre['idUser']): ?>

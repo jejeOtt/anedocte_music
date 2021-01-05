@@ -11,22 +11,12 @@
              Attention ! Le genre n'apparaît que lorsqu'il est validé.
         </div>
     </div>
+    <br>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
 
 <?php endif;?>
-<div class="row">
-    <div class="col-md-4">
-        <form action="<?= base_url('genres'); ?>" method="POST">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Chercher un genre..." name="genreSearch">
-                <div class="input-group-append">
-                    <input class="btn btn-primary" type="submit" name="genreSend" autocomplete="off" autofocus />
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+
 <?= $this->pagination->create_links(); ?>
-<h5>Resultats: <?= $total_rows; ?></h5>
 <?php if (empty($genres)) : ?>
     <tr>
         <td>

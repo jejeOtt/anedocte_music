@@ -6,8 +6,6 @@
         <div class="container">
             <div style="text-align:left">
                 <?php if ($this->session->userdata('logged_in')) : ?>
-
-
                     <div class="card text-center">
                         <div class="card-body">
                             <h5 class="card-title">Créer une nouvelle tracks ici : </h5><br>
@@ -17,24 +15,9 @@
                             Attention ! Le morceau n'apparaît que lorsqu'il est validé.
                         </div>
                     </div>
-
                     <br>
                     <hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
-
                 <?php endif; ?>
-                <div class="row">
-                    <div class="col-md-4">
-                        <form action="<?= base_url('tracks'); ?>" method="POST">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Chercher un morceau..." name="trackSearch">
-                                <div class="input-group-append">
-                                    <input class="btn btn-primary" type="submit" name="trackSend" autocomplete="off" autofocus />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
             <?= $this->pagination->create_links(); ?>
             <h5>Resultats: <?= $total_rows; ?></h5>
             <?php if (empty($tracks)) : ?>

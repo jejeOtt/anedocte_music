@@ -12,15 +12,7 @@
             //charger la librairie pagination
             $this->load->library('pagination');
 
-            if($this->input->post('genreSend')) {
-                $data['genreSearch'] = $this->input->post('genreSearch');
-                $this->session->set_userdata('genreSearch', $data['genreSearch']);
-            } else {
-                $data['genreSearch'] = $this->session->userdata('genreSearch');
-            }
-
             //Config
-            $this->db->like('genreName', $data['genreSearch']);
             $this->db->from('genres');
             $config['total_rows'] = $this->db->count_all_results();
             $data['total_rows'] = $config['total_rows'];
@@ -31,7 +23,7 @@
             $this->pagination->initialize($config);
 
             $data['start'] = $this->uri->segment(3);
-            $data['genres'] = $this->genre_model->get_genres(false, $config['per_page'], $data['start'], $data['genreSearch']);
+            $data['genres'] = $this->genre_model->get_genres(false, $config['per_page'], $data['start'], $data['genreSearch'] = NULL);
 
             $this->load->view('templates/header');
             $this->load->view('genres/index', $data);
