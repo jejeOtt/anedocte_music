@@ -1,8 +1,20 @@
-<h1>Liste des genres en attente de validation</h1>
+<h5 style="text-align:center" class="h3 mb-3 fw-bold">Liste des genres en attente de validation</h5>
 
 <?php foreach($genres as $genre) : ?>
-    <h3><?php echo $genre['genreName']; ?></h3>
-    <small class="post-date">Posted on : <?php echo $genre['createdAt']; ?></small><br>
-    <p><a class="btn btn-outline-primary" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p>
-    <p><a class="btn btn-outline-primary" href="<?php echo site_url('/back_office/validate_genre/'.$genre['idGenre']); ?>">Valider le genre</a></p>
+
+
+    <div class="card">
+            <h4 class="card-header"><?php echo $genre['genreName']; ?></h4>
+            <div class="card-body">
+                <p class="card-text">Consulter la story en rapport au genre ici :</p><br>
+                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p></a>  <a class="btn btn-lg btn-info" 
+                <a class="btn btn-outline-primary" href="<?php echo site_url('/back_office/validate_genre/'.$genre['idGenre']); ?>">Valider le genre</a><br>
+                <p class="card-text">Genre posté le : <?php echo $genre['createdAt']; ?>
+                <p class="card-text">Numéro Créateur : <?php echo $genre['idUser']; ?>
+                
+            </div>
+    </div>
+
+    
+
 <?php endforeach; ?>

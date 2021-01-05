@@ -5,20 +5,49 @@
     <div class="container" >
             <div style="text-align:left">
         <?php if($this->session->userdata('logged_in')): ?>
-            <p><a class="btn btn-lg btn-primary" href="<?php echo site_url('/tracks/create'); ?>">Ajouter une nouvelle tracks</a></p>
+
+        
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Créer une nouvelle tracks ici : </h5><br>
+                    <p style="text-align:center"><a class="btn btn-lg btn-primary" href="<?php echo site_url('/tracks/create'); ?>">Créer Track</a></p>
+                </div>
+                <div class="card-footer text-muted">
+                Attention ! Le morceau n'apparaît que lorsqu'il est validé.
+                </div>
+            </div>
+
+            <br><hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
+
         <?php endif;?>
         <?php foreach($tracks as $track)  : ?>
-            <h3><?php if($track['isValidated'] == 1): ?> Dans la catégorie :  <?php echo $track['genreName']; ?></h3><br>
-                <h4><?php echo $track['nameTrack']; ?></h4><br>
-                
-                <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/<?php echo $track["url"]; ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>     
 
-                
-                <p><a class="link" href="<?php echo $track['url']; ?>"></a></p>
-                <h4 style="text-align:right"><small class="post-date">Track postée le : <?php echo $track['createdAt']; ?></small></h4><br>
-                <h4 style="text-align:right"><small class="post-name">Numéro Créateur : <?php echo $track['idUser']; ?></small></h4><br>
-                <p style="text-align:right"><a class="btn btn-lg btn-primary" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a></p>
+
+                <h5><?php if($track['isValidated'] == 1): ?> Dans la catégorie :  <?php echo $track['genreName']; ?></h5><br>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5>
+                            <p class="card-text">Consulter les détails de ce morceau ici : </p><br>
+                            <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a></p><br>
+                            <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
+                            <p class="card-text">Numéro créateur : <?php echo $track['idUser']; ?>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Video</h5>
+                            <p class="card-text">Vous pouvez écoutez ce morceau ici : </p>
+                            <iframe width="500" height="175" 
+                            src="https://www.youtube.com/embed/<?php echo $track["url"]; ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <br><hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
 

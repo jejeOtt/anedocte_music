@@ -15,12 +15,6 @@
             
             <input type="password" class="form-control" name="password" class="col-sm-3 col-form-label" placeholder="Mot de passe">
             <br>
-            <div class="checkbox mb-3">
-            <label>
-                <br>
-                <input type="checkbox" value="remember-me"> Se souvenir de moi
-            </label>
-            </div>
             <button type="submit" class="btn btn-lg btn-primary">Valider</button>
         </div>
 
