@@ -3,7 +3,7 @@
         public function index(){
             $data['title'] = 'Genre';
 
-            $data['genres'] = $this->genre_model->get_genres();
+            //$data['genres'] = $this->genre_model->get_genres();
             //var_dump($data);
             // foreach($data['genres'] as $idGenre){
             //     echo($idGenre['idGenre']);
