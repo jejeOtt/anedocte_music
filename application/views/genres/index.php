@@ -7,9 +7,9 @@
 <?php foreach($genres as $genre) : ?>
     <?php if($genre['isValidated'] == 1) : ?>
         <h3><?php echo $genre['genreName']; ?></h3>
-        
-        <h4 style="text-align:right"><small class="post-date">Track postée le : <?php echo $genre['createdAt']; ?></small></h4><br>
-        <h4 style="text-align:right"><small class="post-name">Numéro Créateur : <?php echo $genre['idUser']; ?></small></h4><br>
+        <p><?php echo $genre['story']; ?></p>
+        <h4 style="text-align:right"><small class="post-date">Genre posté le : <?php echo $genre['createdAt']; ?></small></h4><br>
+        <!-- <h4 style="text-align:right"><small class="post-name">Numéro Créateur : <?php echo $genre['idUser']; ?></small></h4><br> -->
         <p style="text-align:right"><a class="btn btn-lg btn-primary" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p>
 
         <br><hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>

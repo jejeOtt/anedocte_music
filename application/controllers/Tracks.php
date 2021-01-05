@@ -39,6 +39,7 @@
                 $this->load->view('templates/footer');
             } else {
                 $this->track_model->create_track();
+                $this->session->set_flashdata('created_track', 'Votre track a été créée est est en attente de validation');
                 redirect('tracks');
             }
 
@@ -63,6 +64,7 @@
             $this->load->view('tracks/edit', $data);
             $this->load->view('templates/footer');
         }
+        
         public function update() {
             $this->track_model->update_track();
             redirect('tracks');

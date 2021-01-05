@@ -3,7 +3,7 @@
 <head>
     <title>Music anedoctes</title>
     <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost/projetPHP/assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -65,14 +65,32 @@
 
 
 <!-- Flashdata -->
+<?php if($this->session->flashdata('user_registered')): ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('user_registered')); ?></div>
+<?php endif;?>
+
 <?php if($this->session->flashdata('user_loggedin')): ?>
-  <?php echo($this->session->flashdata('user_loggedin')); ?>
-  <?php echo($this->session->userdata('userName')); ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('user_loggedin')); ?>
+    <?php echo($this->session->userdata('userName')); ?>
+  </div>
+<?php endif;?>
+
+<?php if($this->session->flashdata('user_loggedout')): ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('user_loggedout')); ?></div>
 <?php endif;?>
 
 <?php if($this->session->flashdata('user_delete')): ?>
-  <?php echo($this->session->flashdata('user_delete')); ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('user_delete')); ?></div>
 <?php endif;?>
+
+<?php if($this->session->flashdata('created_track')): ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('created_track')); ?></div>
+<?php endif;?>
+
+<?php if($this->session->flashdata('created_genre')): ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('created_genre')); ?></div>
+<?php endif;?>
+
 
 <!-- Enlever ce bloc, juste la pour faire des test et output les infos du user/ S'en servir comme référence pour utiliser les infos de la session -->
 <?php if($this->session): ?>
@@ -93,9 +111,6 @@
   ?>
 <?php endif;?>
 
-<?php if($this->session->flashdata('user_loggedout')): ?>
-  <?php echo($this->session->flashdata('user_loggedout')); ?>
-<?php endif;?>
     <div class="container">
         <br>
-        <hr>
+  

@@ -62,23 +62,4 @@ echo validation_errors(); ?>
 
 	</body>
 
-    <!-- <div>
-        <label>Pseudonyme / User name</label>
-        <br>
-        <input type="text" name="userName" placeholder="Nom d'utilisateur">
-        <br>
-        <label>Email</label>
-        <br>
-        <input type="text" name="email" placeholder="Email">
-        <label>Mot de passe</label>
-        <br>
-        <input type="password" name="password" placeholder="mot de passe">
-        <br>
-        <label>Tapez encore une fois le mot de passe</label>
-        <br>
-        <input type="password" name="password2" placeholder="confirmation mot de passe">
-        <br>
-        <br>
-        <button type="submit" class="">Submit</button>
-    </div> -->
 <?php echo form_close(); ?>

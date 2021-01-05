@@ -46,4 +46,8 @@
             return $this->db->update('genres', $data);
 
         }
+
+        // public function get_nb_tracks($idGenre){
+        //     $query = $this->db->count_all_results('tracks');
+        // }
     }

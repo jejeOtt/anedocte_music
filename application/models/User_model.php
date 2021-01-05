@@ -144,4 +144,19 @@
             $query = $this->db->get_where('tracks', array('idUser' => $idUser));
             return $query->result_array();
         }
+
+        // Fonction pour update son profil
+        public function update_profil($userName, $email, $idUser) {
+            // Array des données utilisateurs
+            $data = array(
+				'userName' => $userName,
+				'email' => $email,
+			);
+
+            // Update l'utilisateur en base de donnée
+            $this->db->where('idUser', $idUser);
+            $this->db->update('users', $data);
+            
+            return true;
+        }
     }

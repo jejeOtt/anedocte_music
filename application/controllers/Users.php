@@ -26,9 +26,9 @@ class Users extends CI_Controller {
 			$this->user_model->register($enc_password);
 
 			// Message pour indiquer à l'utilisateur qu'il a été inscrit
-			$this->session->set_flashdata('user_registered', 'Vous êtes bien enregistré et pouvez maintenat vous logger');
+			$this->session->set_flashdata('user_registered', 'Vous êtes bien enregistré et pouvez maintenant vous logger');
 
-			redirect('users/register');
+			redirect('users/login');
 		}
 	}
 
@@ -85,7 +85,7 @@ class Users extends CI_Controller {
 				$this->session->set_userdata($user_data);
 
 				// créer un message
-				$this->session->set_flashdata('user_loggedin', 'Vous êtes maintenant connecté');
+				$this->session->set_flashdata('user_loggedin', 'Vous êtes maintenant connecté(e)');
 
 				redirect('pages/view');
 
@@ -144,5 +144,49 @@ class Users extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('users/created_tracks', $data);
 		$this->load->view('templates/footer');
+	}
+
+	// changer ses informations personnelles
+	public function update_profil() {
+		$this->form_validation->set_rules('userName', 'UserName', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+
+		if($this->form_validation->run() === FALSE){
+			$this->load->view('templates/header');
+			$this->load->view('users/update_profil');
+			$this->load->view('templates/footer');
+		} else {
+			if($this->input->post('userName') == $this->session->userdata['userName']){
+				$userName = $this->input->post('userName');
+			} else {
+				if(!$this->user_model->check_username_exists($this->input->post('userName'))) {
+					//die('ce nom est pris test');
+					$this->session->set_flashdata('user_name_error', 'Ce nom est déjà pris. Si vous voulez changer de nom veuillez en prendre un autre');
+					redirect('users/update_profil');
+				} else {
+					$userName = $this->input->post('userName');
+				}
+			}
+	
+			if($this->input->post('email') == $this->session->userdata('email')){
+				$email = $this->input->post('email');
+			} else {
+				if(!$this->user_model->check_email_exists($this->input->post('email'))) {
+					$this->session->set_flashdata('user_email_error', 'Cet email est déjà pris. Si vous voulez changer d\'email veuillez en entrer un autre');
+					redirect('users/update_profil');
+				} else {
+					$email = $this->input->post('email');
+				}
+			}
+			
+			$idUser = $this->session->userdata['idUser'];
+
+			$this->user_model->update_profil($userName, $email, $idUser);
+
+			// Message pour indiquer à l'utilisateur qu'il a été inscrit
+			$this->session->set_flashdata('user_update', 'Votre profil a bien été mise à jour');
+
+			redirect('users/account/'.$this->session->userdata['idUser']);
+		}
 	}
 }

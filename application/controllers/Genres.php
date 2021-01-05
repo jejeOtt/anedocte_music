@@ -4,6 +4,11 @@
             $data['title'] = 'Genre';
 
             $data['genres'] = $this->genre_model->get_genres();
+            //var_dump($data);
+            // foreach($data['genres'] as $idGenre){
+            //     echo($idGenre['idGenre']);
+            //     $data['nbTracks'] =  $this->genre_model->get_nb_tracks($idGenre['idGenre']);
+            // }
 
             $this->load->view('templates/header');
             $this->load->view('genres/index', $data);
@@ -40,6 +45,7 @@
                 $this->load->view('templates/footer');
             } else {
                 $this->genre_model->create_genre();
+                $this->session->set_flashdata('created_genre', 'Votre genre a été créée est est en attente de validation');
                 redirect('genres');
             }
 

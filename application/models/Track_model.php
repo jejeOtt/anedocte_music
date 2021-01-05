@@ -53,6 +53,7 @@
             $data = array(
                 'nameTrack' => $this->input->post('nameTrack'),
                 'idGenre' => $this->input->post('idGenre'),
+                'url' => $this->input->post('url'),
                 'idUser' => $this->session->userdata['idUser'],
                 'slug' => $slug,
 
