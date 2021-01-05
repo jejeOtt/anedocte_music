@@ -19,7 +19,6 @@
                     <hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
                 <?php endif; ?>
             <?= $this->pagination->create_links(); ?>
-            <h5>Resultats: <?= $total_rows; ?></h5>
             <?php if (empty($tracks)) : ?>
                 <tr>
                     <td>

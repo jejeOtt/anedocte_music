@@ -24,10 +24,10 @@
         <a class="nav-link" href="<?php echo base_url(); ?>tracks">Listes des morceaux</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>about">A propos</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>search/index">Recherche</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url(); ?>search/index">Recherche</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>about">A propos</a>
       </li>
     </ul>
     <ul class="navbar-nav">
