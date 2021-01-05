@@ -40,8 +40,10 @@ class Admin_office extends CI_Controller {
                 $this->load->view('admin_office/import', $data);
                 $this->load->view('templates/footer');
             } else {
-                $urlGenre = 'https://binaryjazz.us/wp-json/genrenator/v1/genre/20';
-                $urlStory = 'https://binaryjazz.us/wp-json/genrenator/v1/story/20';
+
+                $nbr = $this->input->post('importForm');
+                $urlGenre = 'https://binaryjazz.us/wp-json/genrenator/v1/genre/'.$nbr;
+                $urlStory = 'https://binaryjazz.us/wp-json/genrenator/v1/story/'.$nbr ;
                 $curlGenre = curl_init($urlGenre);
                 $curlStory = curl_init($urlStory);
 
@@ -54,35 +56,26 @@ class Admin_office extends CI_Controller {
                 curl_setopt($curlStory, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($curlStory, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($curlStory, CURLOPT_SSL_VERIFYPEER, 0);
-    
-                $mh = curl_multi_init();
-
-                curl_multi_add_handle($mh,$curlGenre);
-                curl_multi_add_handle($mh,$curlStory);
                 
                 $datajsonGenre = curl_exec($curlGenre);
                 $datajsonStory = curl_exec($curlStory);
 
                 $datasearchGenre = json_decode($datajsonGenre, true);
                 $datasearchStory = json_decode($datajsonStory, true);
-                var_dump($datasearchGenre);
-                var_dump($datasearchStory);
 
-
-                if (!empty($datasearch)) {
-    
-                   // foreach ($datasearch as $genreName) {
-                    //    $this->API_model->get_API(false, $genreName);
-                    //}
-                    var_dump($datasearch);
+                if (!empty($datasearchGenre && $datasearchStory)) {
+                    foreach (array_combine($datasearchGenre, $datasearchStory) as $genreName => $storyName) {
+                       $this->API_model->get_API(false, $genreName, $storyName);
+                    }
                 }
                 else 
                 {
                     echo "Data not fetched.";
                 }
-                curl_multi_remove_handle($mh, $curlGenre);
-                curl_multi_remove_handle($mh, $curlStory);
-                curl_multi_close($mh);                
+                curl_close($curlGenre);
+                curl_close($curlStory);
+
+                redirect('admin_office/index');
             }
         }
     }

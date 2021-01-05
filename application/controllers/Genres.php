@@ -9,6 +9,29 @@
             //     echo($idGenre['idGenre']);
             //     $data['nbTracks'] =  $this->genre_model->get_nb_tracks($idGenre['idGenre']);
             // }
+            //charger la librairie pagination
+            $this->load->library('pagination');
+
+            if($this->input->post('genreSend')) {
+                $data['genreSearch'] = $this->input->post('genreSearch');
+                $this->session->set_userdata('genreSearch', $data['genreSearch']);
+            } else {
+                $data['genreSearch'] = $this->session->userdata('genreSearch');
+            }
+
+            //Config
+            $this->db->like('genreName', $data['genreSearch']);
+            $this->db->from('genres');
+            $config['total_rows'] = $this->db->count_all_results();
+            $data['total_rows'] = $config['total_rows'];
+            $config['per_page'] = 6;
+            $config['base_url'] = 'http://localhost/projetPHP/genres/index';
+
+            //Initialiser
+            $this->pagination->initialize($config);
+
+            $data['start'] = $this->uri->segment(3);
+            $data['genres'] = $this->genre_model->get_genres(false, $config['per_page'], $data['start'], $data['genreSearch']);
 
             $this->load->view('templates/header');
             $this->load->view('genres/index', $data);
@@ -16,7 +39,7 @@
         }
 
         public function view($slug = NULL){
-            $data['genre'] = $this->genre_model->get_genres($slug);
+            $data['genre'] = $this->genre_model->getAll_genres($slug);
             
             if(empty($data['genre'])){
                 show_404();
@@ -57,7 +80,7 @@
         }
 
         public function edit($slug){
-            $data['genre'] = $this->genre_model->get_genres($slug);
+            $data['genre'] = $this->genre_model->getAll_genres($slug);
 
             if(empty($data['genre'])){
                 show_404();

@@ -5,13 +5,31 @@
             $this->load->database();
         }
 
-        public function get_genres($slug = FALSE){
+        public function getAll_genres($slug = FALSE){
             if($slug === FALSE){
             $query = $this->db->get('genres');
             return $query->result_array();
             }
             $query = $this->db->get_where('genres', array('slug' => $slug));
             return $query->row_array();
+        }
+
+        public function get_genres($slug = FALSE, $limit, $start, $genreSearch = NULL){
+            if($slug === FALSE){
+            $this->db->order_by('createdAt', 'DESC');
+            if ($genreSearch) {
+                $this->db->like('genreName',$genreSearch);
+            }
+            $query = $this->db->get('genres', $limit, $start);
+            return $query->result_array();
+            }
+            $query = $this->db->get_where('genres', array('slug' => $slug));
+            return $query->row_array();
+        }
+
+        public function countGenres()
+        {
+            return $this->db->get('genres')->num_rows();
         }
 
         public function create_genre(){
