@@ -7,8 +7,7 @@
             <h4 class="card-header"><?php echo $genre['genreName']; ?></h4>
             <div class="card-body">
                 <p class="card-text">Consulter la story en rapport au genre ici :</p><br>
-                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p></a>  <a class="btn btn-lg btn-info" 
-                <a class="btn btn-outline-primary" href="<?php echo site_url('/back_office/validate_genre/'.$genre['idGenre']); ?>">Valider le genre</a><br>
+                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p></a>  <a class="btn btn-lg btn-info" class="btn btn-outline-primary" href="<?php echo site_url('/back_office/validate_genre/'.$genre['idGenre']); ?>">Valider le genre</a><br>
                 <p class="card-text">Genre posté le : <?php echo $genre['createdAt']; ?>
                 <p class="card-text">Numéro Créateur : <?php echo $genre['idUser']; ?>
                 
