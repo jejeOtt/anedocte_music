@@ -2,7 +2,6 @@
 <h5 style="text-align:center" class="h3 mb-3 fw-bold">Track</h5>
 <br>
 <body>
-
     <section class="contact">
         <div class="container">
             <div style="text-align:left">
@@ -37,9 +36,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5><br>
-                                <p class="card-text">Consulter les détails de ce morceau ici : </p><br>
-                                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/' . $track['slug']); ?>">Detail</a></p><br>
                                 <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
+                                <br>
+                                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/' . $track['slug']); ?>">Detail</a></p>
                                 <br>  
                             </div>
                         </div>

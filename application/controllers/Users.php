@@ -162,7 +162,7 @@ class Users extends CI_Controller {
 		$this->load->library('pagination');
 
 		//Config
-		$this->db->from('genres');
+		$this->db->from('tracks');
 		$array = array('isValidated' => 1, 'idUser' => $idUser,);
 		$this->db->where($array);
 		$config['total_rows'] = $this->db->count_all_results();

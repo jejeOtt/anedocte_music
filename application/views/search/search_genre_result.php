@@ -14,7 +14,7 @@
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" placeholder="Chercher un genre..." name="genreSearch">
                                 <div class="input-group-append">
-                                    <input class="btn btn-success" type="submit" name="trackSend" autocomplete="off" />
+                                    <input class="btn btn-success" type="submit" name="genreSend" autocomplete="off" />
                                 </div>
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit" name="resetSend" value="reset" autocomplete="off">Reset</button>

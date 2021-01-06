@@ -2,7 +2,7 @@
 <h5 style="text-align:center" class="h3 mb-3 fw-bold">Mes tracks</h5>
 <br>
 <?= $this->pagination->create_links(); ?>
-<?php if (empty($my_genres)) : ?>
+<?php if (empty($my_tracks)) : ?>
     <tr>
         <td>
             <div class="alert alert-danger" role="alert">
@@ -12,14 +12,28 @@
     </tr>
 <?php endif; ?>
 <?php foreach($my_tracks as $track) : ?>
-    <div class="card">
-            <h4 class="card-header"><?php echo $track['nameTrack']; ?></h4>
-            <div class="card-body">
-                <p class="card-text">Consulter ma story en rapport à mon genre ici :</p><br>
-                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a></p><br>
-                <p class="card-text">Mon genre à été posté le : <?php echo $track['createdAt']; ?>
-            </div>
-        </div>
+    <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5><br>
+                                <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
+                                <br>
+                                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/' . $track['slug']); ?>">Detail</a></p>
+                                <br>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Video</h5>
+                                <p class="card-text">Vous pouvez écoutez ce morceau ici : </p>
+                                <iframe width="500" height="175" src="https://www.youtube.com/embed/<?php echo (substr($track["url"], 17)); ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
         <br><hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
 

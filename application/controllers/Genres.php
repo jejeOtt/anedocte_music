@@ -86,7 +86,7 @@
         }
         public function update() {
             $this->genre_model->update_genre();
-            redirect('genres');
+            redirect('users/created_genres');
 
         }
     }
