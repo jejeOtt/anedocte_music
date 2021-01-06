@@ -80,13 +80,12 @@ class Admin_office extends CI_Controller {
         }
     }
 
-    // Récupère le userName, email et password d'un utilisateur
+    // Récupère le userName, email d'un utilisateur
     public function user_detail($idUser) {
         if($this->session->userdata('roleId') != 1 || !$this->session) {
             redirect('');
         } else {
             $data['user'] = $this->admin_office_model->get_user_detail($idUser);
-            var_dump($data);
 
             $this->load->view('templates/header');
             $this->load->view('admin_office/user_detail', $data);
@@ -100,7 +99,7 @@ class Admin_office extends CI_Controller {
         
         if($this->form_validation->run() === FALSE){
 			$this->load->view('templates/header');
-            //$this->load->view('admin_office/users_detail');
+            $this->load->view('admin_office/user_detail');
             echo('there was an error');
 			$this->load->view('templates/footer');
 		} else {

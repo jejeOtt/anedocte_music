@@ -25,9 +25,14 @@
 
 
 <!-- Liste des tracks liées au genre. La track doit avoir été validé, donc isValidated == 1 -->
-<?php foreach($tracks as $track) : ?>
-    <?php if($track['isValidated'] == 1) : ?>
-        <p><?php echo($track['nameTrack']) ;?></p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo(substr($track["url"], 17)); ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>    
-    <?php endif; ?>
-<?php endforeach; ?>
+
+<?php if($tracks) :?>
+    <?php foreach($tracks as $track) : ?>
+        <?php if($track['isValidated'] == 1) : ?>
+            <p><?php echo($track['nameTrack']) ;?></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo(substr($track["url"], 17)); ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>    
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php else: ?>
+    <h3>Il n'y a pas encore de tracks pour ce genre</h3>
+<?php endif;?>

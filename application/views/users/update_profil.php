@@ -38,7 +38,7 @@ echo validation_errors(); ?>
 						</div>
 
 						<div class="form-group ">
-							<br><button type="submit" class="btn btn-primary btn-lg btn-block login-button">Update</button><br><br>
+							<br><button type="submit" class="btn btn-primary btn-lg btn-block login-button">Mettre à jours mes informations</button><br><br>
 						</div>
 					</form>
 				</div>
