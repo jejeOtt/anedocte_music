@@ -21,7 +21,7 @@
     <tr>
         <td>
             <div class="alert alert-danger" role="alert">
-                Aucun résultat
+                Cette page ne contient pas de genres
             </div>
         </td>
     </tr>
@@ -35,8 +35,7 @@
                 <p class="card-text">Consulter la story en rapport au genre ici :</p><br>
                 <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p><br>
                 <p class="card-text">Genre posté le : <?php echo $genre['createdAt']; ?>
-                <p class="card-text">Numéro Créateur : <?php echo $genre['idUser']; ?>
-                
+                <br>               
             </div>
         </div>
 

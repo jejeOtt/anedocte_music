@@ -9,13 +9,17 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Chercher un genre..." name="genreSearch">
                 <div class="input-group-append">
-                    <input class="btn btn-primary" type="submit" name="genreSend" autocomplete="off" autofocus />
+                    <input class="btn btn-primary" type="submit" name="genreSend" autocomplete="off" />
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit" name="resetSend" value="reset" autocomplete="off">Reset</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 <?= $this->pagination->create_links(); ?>
+<h5>Recherche pour <?= $genreSearch; ?></h5>
 <h5>Resultats: <?= $total_rows; ?></h5>
 <?php if (empty($genres)) : ?>
     <tr>

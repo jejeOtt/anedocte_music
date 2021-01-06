@@ -55,14 +55,16 @@
         }
         
         // Fonction pour récupérer les genres crées par un utilisateur
-        public function get_created_genres($idUser) {
-            $query = $this->db->get_where('genres', array('idUser' => $idUser));
+        public function get_created_genres($limit, $start, $idUser) {
+            $array = array('isValidated' => 1, 'idUser' => $idUser,);
+            $query = $this->db->get_where('genres',$array, $limit, $start);
             return $query->result_array();
         }
 
         // Fonction pour récupérer les tracks crées par un utilisateur
-        public function get_created_tracks($idUser) {
-            $query = $this->db->get_where('tracks', array('idUser' => $idUser));
+        public function get_created_tracks($limit, $start, $idUser) {
+            $array = array('isValidated' => 1, 'idUser' => $idUser,);
+            $query = $this->db->get_where('tracks',$array, $limit, $start);
             return $query->result_array();
         }
 

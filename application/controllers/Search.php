@@ -6,27 +6,31 @@
             $this->load->view('templates/footer');
         }
 
-
         public function search_genre_result(){
             $data['title'] = 'Genre';
 
             //charger la librairie pagination
             $this->load->library('pagination');
-
+            
             if($this->input->post('genreSend')) {
                 $data['genreSearch'] = $this->input->post('genreSearch');
                 $this->session->set_userdata('genreSearch', $data['genreSearch']);
             } else {
                 $data['genreSearch'] = $this->session->userdata('genreSearch');
             }
+            if($this->input->post('resetSend')) {
+                $this->session->unset_userdata('genreSearch');
+                redirect('search/search_genre_result');
+            }
 
             //Config
             $this->db->like('genreName', $data['genreSearch']);
             $this->db->from('genres');
+            $this->db->where('isValidated', 1);
             $config['total_rows'] = $this->db->count_all_results();
             $data['total_rows'] = $config['total_rows'];
             $config['per_page'] = 6;
-            $config['base_url'] = 'http://localhost/projetPHP/index.php/search/search_genre_result';
+            $config['base_url'] = 'http://localhost/projetPHP/search/search_genre_result';
 
             //Initialiser
             $this->pagination->initialize($config);
@@ -57,15 +61,20 @@
             } else {
                 $data['trackGenreSearch'] = $this->session->userdata('trackGenreSearch');
             }
+            if($this->input->post('resetSend')) {
+                $this->session->unset_userdata('trackSearch');
+                redirect('search/search_track_result');
+            }
 
             //Config
             //$this->db->like('genres.genreName', $data['trackGenreSearch']);
             $this->db->like('nameTrack', $data['trackSearch']);
             $this->db->from('tracks');
+            $this->db->where('isValidated', 1);
             $config['total_rows'] = $this->db->count_all_results();
             $data['total_rows'] = $config['total_rows'];
             $config['per_page'] = 6;
-            $config['base_url'] = 'http://localhost/projetPHP/index.php/search/search_tracks_result';
+            $config['base_url'] = 'http://localhost/projetPHP/search/search_track_result';
 
 
             //Initialiser

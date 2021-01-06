@@ -1,9 +1,15 @@
 <h5 style="text-align:center" class="h3 mb-3 fw-bold">Mes genres créer</h5>
-
+<?= $this->pagination->create_links(); ?>
+<?php if (empty($my_genres)) : ?>
+    <tr>
+        <td>
+            <div class="alert alert-danger" role="alert">
+                Vous n'avez pas créer de tracks
+            </div>
+        </td>
+    </tr>
+<?php endif; ?>
 <?php foreach($my_genres as $genre) : ?>
-
-
-
     <div class="card">
             <h4 class="card-header"><?php echo $genre['genreName']; ?></h4>
             <div class="card-body">

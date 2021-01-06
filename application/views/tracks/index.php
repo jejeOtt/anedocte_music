@@ -39,7 +39,7 @@
                                 <p class="card-text">Consulter les détails de ce morceau ici : </p><br>
                                 <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/' . $track['slug']); ?>">Detail</a></p><br>
                                 <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
-                                <p class="card-text">Numéro créateur : <?php echo $track['idUser']; ?>
+                                <br>  
                             </div>
                         </div>
                     </div>

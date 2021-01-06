@@ -128,8 +128,26 @@ class Users extends CI_Controller {
 
 	// consulter les genres crées
 	public function created_genres() {
-		$data['my_genres'] = $this->user_model->get_created_genres($this->session->userdata['idUser']);
 		//var_dump($data);
+
+		//charger la librairie pagination
+		$this->load->library('pagination');
+		$idUser = $this->session->userdata['idUser'];
+		//Config
+		$this->db->from('genres');
+		$array = array('isValidated' => 1, 'idUser' => $idUser,);
+		$this->db->where($array);
+		$config['total_rows'] = $this->db->count_all_results();
+		$data['total_rows'] = $config['total_rows'];
+		$config['per_page'] = 6;
+		$config['base_url'] = 'http://localhost/projetPHP/users/created_genres';
+
+		//Initialiser
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['my_genres'] = $this->user_model->get_created_genres($config['per_page'], $data['start'],$idUser);
 
 		$this->load->view('templates/header');
 		$this->load->view('users/created_genres', $data);
@@ -138,8 +156,25 @@ class Users extends CI_Controller {
 
 	// consulter les tracks crées
 	public function created_tracks() {
-		$data['my_tracks'] = $this->user_model->get_created_tracks($this->session->userdata['idUser']);
 		//var_dump($data);
+		$idUser = $this->session->userdata['idUser'];
+		//charger la librairie pagination
+		$this->load->library('pagination');
+
+		//Config
+		$this->db->from('genres');
+		$array = array('isValidated' => 1, 'idUser' => $idUser,);
+		$this->db->where($array);
+		$config['total_rows'] = $this->db->count_all_results();
+		$data['total_rows'] = $config['total_rows'];
+		$config['per_page'] = 6;
+		$config['base_url'] = 'http://localhost/projetPHP/users/created_tracks';
+
+		//Initialiser
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+		$data['my_tracks'] = $this->user_model->get_created_tracks($config['per_page'], $data['start'], $idUser);
 
 		$this->load->view('templates/header');
 		$this->load->view('users/created_tracks', $data);

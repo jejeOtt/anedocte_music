@@ -1,5 +1,15 @@
 <h5 style="text-align:center" class="h3 mb-3 fw-bold">Mes tracks</h5>
 <br>
+<?= $this->pagination->create_links(); ?>
+<?php if (empty($my_genres)) : ?>
+    <tr>
+        <td>
+            <div class="alert alert-danger" role="alert">
+                Vous n'avez pas créer de tracks
+            </div>
+        </td>
+    </tr>
+<?php endif; ?>
 <?php foreach($my_tracks as $track) : ?>
     <div class="card">
             <h4 class="card-header"><?php echo $track['nameTrack']; ?></h4>
