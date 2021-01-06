@@ -11,15 +11,14 @@
     </tr>
 <?php endif; ?>
 <?php foreach($my_genres as $genre) : ?>
-    <div class="card">
-            <h4 class="card-header"><?php echo $genre['genreName']; ?></h4>
-            <div class="card-body">
-                <p class="card-text">Consulter la story en rapport au genre ici :</p><br>
-                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Detail</a></p>
-                <p class="card-text">Genre posté le : <?php echo $genre['createdAt']; ?>
-
-            </div>
-    </div><br><hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
-
-
+    <div class="card my-5">
+        <div class="card-header">
+            <h4><?php echo $genre['genreName']; ?></h4>
+            <small>Genre posté le : <?php echo $genre['createdAt']; ?></small>
+        </div>
+        <div class="card-body">
+            <p class="card-text story">"<?php echo $genre['story'] ;?>"</p>
+            <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Détail</a></p>    
+        </div>
+    </div>
 <?php endforeach; ?>
