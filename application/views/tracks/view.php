@@ -7,7 +7,8 @@
 
 <hr>
 
-<?php if($this->session->userdata('roleId') < 3 || $this->session->userdata('idUser') == $track['idUser']): ?>
+<?php if($this->session->userdata('roleId') == 1 || $this->session->userdata('roleId') == 2 || $this->session->userdata('idUser') == $track['idUser']): ?>
+
     <a class="btn btn-primary pull-left" href="<?php echo base_url(); ?>tracks/edit/<?php echo $track['slug']; ?>">
     Edit</a>
     <a class="btn btn-danger pull-left" href="<?php echo base_url(); ?>tracks/delete/<?php echo($track['idTrack']); ?>">

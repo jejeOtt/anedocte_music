@@ -135,7 +135,7 @@ class Users extends CI_Controller {
 		$idUser = $this->session->userdata['idUser'];
 		//Config
 		$this->db->from('genres');
-		$array = array('isValidated' => 1, 'idUser' => $idUser,);
+		$array = array('idUser' => $idUser,);
 		$this->db->where($array);
 		$config['total_rows'] = $this->db->count_all_results();
 		$data['total_rows'] = $config['total_rows'];
@@ -163,7 +163,7 @@ class Users extends CI_Controller {
 
 		//Config
 		$this->db->from('tracks');
-		$array = array('isValidated' => 1, 'idUser' => $idUser,);
+		$array = array('idUser' => $idUser,);
 		$this->db->where($array);
 		$config['total_rows'] = $this->db->count_all_results();
 		$data['total_rows'] = $config['total_rows'];

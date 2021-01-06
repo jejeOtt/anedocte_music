@@ -75,6 +75,7 @@ class Admin_office extends CI_Controller {
                 curl_close($curlGenre);
                 curl_close($curlStory);
 
+                $this->session->set_flashdata('import_data', "L'importation a bien été effectuée");
                 redirect('admin_office/index');
             }
         }

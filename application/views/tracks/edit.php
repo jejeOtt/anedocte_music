@@ -23,5 +23,5 @@
       <?php endforeach; ?>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Validé</button>
+  <button type="submit" class="btn btn-primary">Valider</button>
 </form>

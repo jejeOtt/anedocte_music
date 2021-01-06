@@ -9,9 +9,9 @@
                 <!-- Haut -->
                 <div class="right">
                 
-                    <h6 style="text-align:center">Bonjour et bienvenue, ce site vous proposera de créer des morceaux et de pouvoir les asigner a des genre.
-                    <br>Vous pouvez consultez les détails des genres et voir les stories propre à chaque genre.
-                    <br>Enfin, pour pouvoir mettre vos propres genres et tracks il suffit de vous insrire et vous connectez à votre compte</h6>
+                    <h6 style="text-align:center">Bonjour et bienvenue, ce site vous proposera de créer des morceaux et de pouvoir les assigner à des genres.
+                    <br>Vous pouvez consulter les détails des genres et voir les histoires propre à chaque genre.
+                    <br>Enfin, pour pouvoir mettre vos propres genres et tracks il suffit de vous insrire et de vous connecter à votre compte.</h6>
                                     
                 </div>
                 <br>

@@ -16,5 +16,5 @@
         </div>
     <?php endforeach; ?>
 <?php else : ?>
-    <h3>Il n'y a aucun nouveau Genre en attente de validation</h3>
+    <h3 class="alert alert-secondary">Il n'y a aucun nouveau Genre en attente de validation</h3>
 <?php endif; ?>

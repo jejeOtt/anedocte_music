@@ -22,7 +22,7 @@
           <a class="nav-link" href="<?php echo base_url(); ?>genres">Listes des genres</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?php echo base_url(); ?>tracks">Listes des morceaux</a>
+          <a class="nav-link" href="<?php echo base_url(); ?>tracks">Listes des tracks</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo base_url(); ?>search/index">Recherche</a>
@@ -101,6 +101,10 @@
 
   <?php if($this->session->flashdata('user_update')): ?>
     <div class="alert alert-success"><?php echo($this->session->flashdata('user_update')); ?></div>
+  <?php endif;?>
+
+  <?php if($this->session->flashdata('import_data')): ?>
+    <div class="alert alert-success"><?php echo($this->session->flashdata('import_data')); ?></div>
   <?php endif;?>
 
 

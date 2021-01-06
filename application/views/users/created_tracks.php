@@ -5,7 +5,7 @@
 <?php if (empty($my_tracks)) : ?>
     <tr>
         <td>
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-dark" role="alert">
                 Vous n'avez pas créer de tracks
             </div>
         </td>
@@ -19,8 +19,10 @@
                     <h3 class="card-title"><?php echo $track['nameTrack']; ?></h3>
                     <small class="card-text mb-5"><p>Track postée le : <?php echo $track['createdAt']; ?></p></small>
                     <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/' . $track['slug']); ?>">Detail</a></p>
+                    <?php if($track['isValidated'] == 0): ?>
+                        <p class="alert alert-secondary">En attente de validation</p>
+                    <?php endif; ?>
                 </div>
-
                 <div class="col">
                     <iframe width="500" height="250" src="https://www.youtube.com/embed/<?php echo (substr($track["url"], 17)); ?>?autoplay=1&autohide=1&controls=1&showinfo=0&modestbranding=1&rel=0"></iframe>
                 </div>
