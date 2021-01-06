@@ -82,6 +82,10 @@
   <div class="alert alert-success"><?php echo($this->session->flashdata('user_loggedout')); ?></div>
 <?php endif;?>
 
+<?php if($this->session->flashdata('login_failed')): ?>
+  <div class="alert alert-danger"><?php echo($this->session->flashdata('login_failed')); ?></div>
+<?php endif;?>
+
 <?php if($this->session->flashdata('user_delete')): ?>
   <div class="alert alert-success"><?php echo($this->session->flashdata('user_delete')); ?></div>
 <?php endif;?>
@@ -93,6 +97,11 @@
 <?php if($this->session->flashdata('created_genre')): ?>
   <div class="alert alert-success"><?php echo($this->session->flashdata('created_genre')); ?></div>
 <?php endif;?>
+
+<?php if($this->session->flashdata('user_update')): ?>
+  <div class="alert alert-success"><?php echo($this->session->flashdata('user_update')); ?></div>
+<?php endif;?>
+
 
     <div class="container">
         <br>

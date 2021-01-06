@@ -90,11 +90,11 @@ class Users extends CI_Controller {
 				redirect('pages/view');
 
 			} else {
-				die('Failed');
+				//die('Failed');
 				// Set message
-				// $this->session->set_flashdata('login_failed', 'Le login est invalide');
+				$this->session->set_flashdata('login_failed', 'Votre nom d\'utilisateur ou votre mot de passe est invalide');
 
-				// redirect('users/login');
+				redirect('users/login');
 			}		
 		}
 	}
@@ -218,8 +218,8 @@ class Users extends CI_Controller {
 
 			$this->user_model->update_profil($userName, $email, $idUser);
 
-			// Message pour indiquer à l'utilisateur qu'il a été inscrit
-			$this->session->set_flashdata('user_update', 'Votre profil a bien été mise à jour');
+			// Message pour indiquer à l'utilisateur que son profil a été mise à jour
+			$this->session->set_flashdata('user_update', 'Votre profil a bien été mise à jour. Cependant vos informations seront à jour lors de votre prochaine connexion.');
 
 			redirect('users/account/'.$this->session->userdata['idUser']);
 		}

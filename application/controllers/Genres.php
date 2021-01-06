@@ -17,7 +17,7 @@
             $config['total_rows'] = $this->db->count_all_results();
             $data['total_rows'] = $config['total_rows'];
             $config['per_page'] = 6;
-            $config['base_url'] = 'http://localhost/projetPHP/genres/index';
+            $config['base_url'] = 'http://localhost/projetPHP/index.php/genres/index';
 
             //Initialiser
             $this->pagination->initialize($config);
