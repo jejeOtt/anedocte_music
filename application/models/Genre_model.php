@@ -32,8 +32,11 @@
             return $this->db->get('genres')->num_rows();
         }
 
-        public function create_genre(){
+        public function create_genre($unwanted_array){
             $slug = url_title($this->input->post('genreName'));
+            $slug = strtr( $slug, $unwanted_array );
+            var_dump($slug);
+            
             $data = array(
                 'genreName' => $this->input->post('genreName'),
                 'story' => $this->input->post('story'),

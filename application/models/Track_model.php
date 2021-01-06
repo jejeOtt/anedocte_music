@@ -52,8 +52,9 @@
             return $query->result_array();
         }
 
-        public function create_track(){
+        public function create_track($unwanted_array){
             $slug = url_title($this->input->post('nameTrack'));
+            $slug = strtr( $slug, $unwanted_array );
             $data = array(
                 'nameTrack' => $this->input->post('nameTrack'),
                 'url' => $this->input->post('url'),
