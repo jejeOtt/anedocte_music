@@ -3,6 +3,7 @@
     // Le formulire est envoyé au controlleur sur sa méthode login 
     echo form_open('users/login'); ?>
    
+   <br><a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a>
         <div class="container">
             <div style="text-align:center">
             <h5 class="h3 mb-3 fw-bold">Connexion</h5>
@@ -17,6 +18,7 @@
             <br>
             <button type="submit" class="btn btn-lg btn-primary">Valider</button>
         </div>
+        
 
 
  <!-- <div>

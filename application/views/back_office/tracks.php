@@ -1,8 +1,21 @@
-<h5 style="text-align:center" class="h3 mb-3 fw-bold">Liste des tracks en attente de validation</h5><br>
+
+<br><a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a><h5 style="text-align:center" class="h3 mb-3 fw-bold">Liste des tracks en attente de validation</h5><br>
 
 <?php if($tracks) : ?>
-    <?php foreach($tracks as $track) : ?>
-        <div class="row">
+<?php foreach($tracks as $track) : ?>
+    <div class="row">
+         <div class="col-sm-6">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5><br>
+                <p class="card-text">Consulter les détails de ce morceau ici : </p><br>
+                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a>  <a class="btn btn-lg btn-info" 
+                href="<?php echo site_url('/back_office/validate_track/'.$track['idTrack']); ?>">Valider la track</a></p><br>
+                <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
+                <p></p>
+            </div>
+            </div>
+         </div>
             <div class="col-sm-6">
                 <div class="card">
                 <div class="card-body">
@@ -11,7 +24,6 @@
                     <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/'.$track['slug']); ?>">Detail</a>  <a class="btn btn-lg btn-info" 
                     href="<?php echo site_url('/back_office/validate_track/'.$track['idTrack']); ?>">Valider la track</a></p><br>
                     <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
-                    <p class="card-text">Numéro créateur : <?php echo $track['idUser']; ?>
                 </div>
                 </div>
             </div>

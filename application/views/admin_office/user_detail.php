@@ -1,3 +1,4 @@
+<a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a>
 <h1>This is view for User Detail !</h1>
 
 
