@@ -3,7 +3,7 @@
 echo validation_errors(); ?>
 
 <?php echo form_open('users/register'); ?>
-
+<br><a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a>
 <body>
         <div class="container">
             <div style="text-align:center">

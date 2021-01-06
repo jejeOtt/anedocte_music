@@ -1,3 +1,4 @@
+<br><a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" border="0" alt="retour"></a>
 <body>
     <section class="contact">
     <div class="container">

@@ -1,24 +1,30 @@
+<br><a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a>
 <h5 style="text-align:center" class="h3 mb-3 fw-bold"><?= $title ?></h5>
 <br>
 
 <body>
     <section class="contact">
         <div class="container">
-            <div style="text-align:left">
-                
-                <div class="row">
-                    <div class="col-md-4">
-                        <form action="<?= base_url('search/search_track_result'); ?>" method="POST">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Chercher un morceau..." name="trackSearch">
-                                <div class="input-group-append">
-                                    <input class="btn btn-primary" type="submit" name="trackSend" autocomplete="off" autofocus />
-                                </div>
+            <div style="text-align:center">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Rechercher</div>
+                        <div class="card-body">
+                            <div class="col-md-13">
+                                <form action="<?= base_url('search/search_track_result'); ?>" method="POST">
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" placeholder="Chercher un morceau..." name="trackSearch">
+                                        <div class="input-group-append">
+                                            <input class="btn btn-success" type="submit" name="trackSend" autocomplete="off" autofocus />
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
-                    </div>
+                        </div>
                 </div>
             </div>
+        </div><br>
+            
             <?= $this->pagination->create_links(); ?>
             <h5>Resultats: <?= $total_rows; ?></h5>
             <?php if (empty($tracks)) : ?>
@@ -37,11 +43,11 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5>
+                                <h5 class="card-title"> Titre du morceau : <?php echo $track['nameTrack']; ?></h5><br>
                                 <p class="card-text">Consulter les détails de ce morceau ici : </p><br>
                                 <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/tracks/' . $track['slug']); ?>">Detail</a></p><br>
                                 <p class="card-text">Track postée le : <?php echo $track['createdAt']; ?>
-                                <p class="card-text">Numéro créateur : <?php echo $track['idUser']; ?>
+                                <p></p>
                             </div>
                         </div>
                     </div>
