@@ -13,7 +13,7 @@
             $config['total_rows'] = $this->db->count_all_results();
             $data['total_rows'] = $config['total_rows'];
             $config['per_page'] = 6;
-            $config['base_url'] = 'http://localhost/projetPHP/index.php/tracks/index';
+            $config['base_url'] = 'http://localhost/projetPHP/tracks/index';
 
 
             //Initialiser

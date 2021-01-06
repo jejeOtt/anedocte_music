@@ -1,7 +1,7 @@
 <?php
     //Config
     $config['num_links'] = 3;
-    $config['first_url'] = '1'; 
+    $config['first_url'] = '0'; 
 
     //Pagination Stylé
     $config['full_tag_open'] = '<nav><ul class="pagination justify-content-center">';
