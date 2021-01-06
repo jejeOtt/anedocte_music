@@ -2,7 +2,7 @@
 <?php if ($this->session->userdata('logged_in')) : ?>
 
 <?php endif; ?>
-<section class="contact">
+<section>
     <div class="container">
         <div style="text-align:center">
             <div class="card text-center">
@@ -40,21 +40,18 @@
         </tr>
     <?php endif; ?>
     <?php foreach ($genres as $genre) : ?>
-        <h5><?php if ($genre['isValidated'] == 1) : ?> Titre du genre : </h5><br>
-
-        <div class="card">
-            <h4 class="card-header"><?php echo $genre['genreName']; ?></h4>
+        <?php if ($genre['isValidated'] == 1) : ?> 
+        <div class="card my-5">
+            <div class="card-header">
+                <h4><?php echo $genre['genreName']; ?></h4>
+                <small>Genre posté le : <?php echo $genre['createdAt']; ?></small>
+            </div>
             <div class="card-body">
-                <p class="card-text">Consulter la story en rapport au genre ici :</p><br>
-                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/' . $genre['slug']); ?>">Detail</a></p><br>
-                <p class="card-text">Genre posté le : <?php echo $genre['createdAt']; ?>
-
+                <p class="card-text story">"<?php echo $genre['story'] ;?>"</p>
+                <p style="text-align:left"><a class="btn btn-lg btn-warning" href="<?php echo site_url('/genres/'.$genre['slug']); ?>">Détail</a></p>    
             </div>
         </div>
-
-        <br>
-        <hr style="height:2px;border-width:0;color:gray;background-color:gray"><br>
-
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <?php endif; ?>
 <?php endforeach; ?>
 </section>

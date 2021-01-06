@@ -19,10 +19,39 @@
     height: 100%;
 }
 
-.footer {
+/* .footer {
     width: 100%;
     display: inline-block;
     margin: 2em 0;
     height: 70px;
     background-color: #999;
+} */
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
 }
+
+.content-wrap {
+    padding-bottom: 2.5rem;  
+}
+
+.footer {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    background-color: #F45D1E;
+    color: white;
+    text-align: center;
+    height: 2.5rem; 
+    padding-top: 10px;
+}
+
+.story {
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+/* .body-color {
+    background: #270075;
+} */

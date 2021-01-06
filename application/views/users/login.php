@@ -3,21 +3,18 @@
     // Le formulire est envoyé au controlleur sur sa méthode login 
     echo form_open('users/login'); ?>
    
-   <br><a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a>
-        <div class="container">
-            <div style="text-align:center">
-            <h5 class="h3 mb-3 fw-bold">Connexion</h5>
+<a href="javascript:history.go(-1)"><img src="https://www.pngarts.com/files/2/Back-PNG-Download-Image.png" width="45" height="45" alt="retour"></a>
+<div class="container">
+    <div style="text-align:center">
+        <h5 class="h3 mb-3 fw-bold">Connexion</h5>
+    </div>
 
-            <br>
-            <input type="text" name="userName"  class="form-control" class="col-sm-3 col-form-label" placeholder="Nom d'utilisateur">
-            
-            <br>
-            <br>
-            
-            <input type="password" class="form-control" name="password" class="col-sm-3 col-form-label" placeholder="Mot de passe">
-            <br>
-            <button type="submit" class="btn btn-lg btn-primary">Valider</button>
-        </div>
+    <input type="text" name="userName"  class="form-control my-3" class="col-sm-3 col-form-label" placeholder="Nom d'utilisateur">
+    
+    <input type="password" class="form-control" name="password" class="col-sm-3 col-form-label" placeholder="Mot de passe">
+    <br>
+    <button type="submit" class="btn btn-lg btn-primary">Valider</button>
+</div>
         
 
 
